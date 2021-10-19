@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/drawable/ic_list_grid.xml" value="0.14635416666666667" />
+        <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/drawable/ic_list_linear_selector.xml" value="0.14635416666666667" />
+        <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/drawable/menu_selector.xml" value="0.14635416666666667" />
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/font-v26/ephesis.xml" value="0.16041666666666668" />
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/font-v26/overlock.xml" value="0.2712962962962963" />
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/font/ephesis.xml" value="0.16041666666666668" />
@@ -11,6 +14,7 @@
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/layout/item_row_photo_grid.xml" value="0.4" />
         <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/layout/item_row_photo_linear.xml" value="0.1265625" />
+        <entry key="..\:/Dicoding/AwesomeApp/app/src/main/res/menu/menu_list_option.xml" value="0.4" />
       </map>
     </option>
   </component>

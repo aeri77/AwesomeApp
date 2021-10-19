@@ -18,10 +18,12 @@ class ListPhotoViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     private val _listPhotoResponse = MutableLiveData<PhotosResponse>()
     private val _errMsg = MutableLiveData<String>()
+    private val _listViewState = MutableLiveData<Int>()
     private val client = ApiConfig.getApiService()
     val listPhotoResponse : LiveData<PhotosResponse> = _listPhotoResponse
     val isLoading: LiveData<Boolean> = _isLoading
     val errMsg: LiveData<String> = _errMsg
+    val listViewState: LiveData<Int> = _listViewState
 
     fun getAllPhotos(){
         client.getListPhoto().enqueue(object : Callback<PhotosResponse>{
@@ -40,5 +42,9 @@ class ListPhotoViewModel: ViewModel() {
                 _errMsg.value = t.message
             }
         })
+    }
+
+    fun setListviewState(int: Int){
+        _listViewState.value = int
     }
 }

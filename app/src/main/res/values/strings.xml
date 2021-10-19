@@ -4,4 +4,6 @@
     <string name="photo">photo</string>
     <string name="width">Width :</string>
     <string name="height">Height :</string>
+    <string name="linear">Linear</string>
+    <string name="grid">Grid</string>
 </resources>
