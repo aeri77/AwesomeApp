@@ -12,7 +12,7 @@ android {
         minSdk 22
         targetSdk 30
         versionCode 1
-        versionName "0.1.0"
+        versionName "0.1.1"
         buildConfigField 'String', 'PEXELS_TOKEN', '"563492ad6f9170000100000193cd6108bb7e40f899b631ac7b9d426b"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
