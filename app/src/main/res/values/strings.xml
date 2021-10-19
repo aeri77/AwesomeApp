@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Awesome App!</string>
     <string name="awesome_app">Awesome App!</string>
+    <string name="photo">photo</string>
+    <string name="width">Width :</string>
+    <string name="height">Height :</string>
 </resources>
