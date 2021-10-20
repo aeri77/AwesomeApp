@@ -31,6 +31,16 @@ class DetailPhotoActivity : AppCompatActivity(){
         onSetUI()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return false
+    }
+
     private fun onSetUI(){
         binding?.apply {
             ivPhoto.loadImage(photosItem?.src?.large)
