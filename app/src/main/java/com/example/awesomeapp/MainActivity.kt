@@ -3,7 +3,7 @@ package com.example.awesomeapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.awesomeapp.ui.ListPhotoActivity
+import com.example.awesomeapp.ui.list.ListPhotoActivity
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {

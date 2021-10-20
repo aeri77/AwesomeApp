@@ -1,8 +1,8 @@
-package com.example.awesomeapp.ui
+package com.example.awesomeapp.ui.list
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.awesomeapp.R
 import com.example.awesomeapp.databinding.ActivityListPhotoBinding
+import com.example.awesomeapp.model.PhotosItem
 import com.example.awesomeapp.model.PhotosResponse
+import com.example.awesomeapp.ui.detail.DetailPhotoActivity
+import com.example.awesomeapp.utils.Utility.loadImage
 import com.example.awesomeapp.utils.Utility.setIcon
 
 class ListPhotoActivity : AppCompatActivity() {
@@ -28,12 +31,16 @@ class ListPhotoActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         rvPhotos = binding?.rvListPhoto
+
         listPhotoViewModel.getAllPhotos()
         listPhotoViewModel.setListviewState(ListPhotoAdapter.LINEAR)
         listPhotoViewModel.listPhotoResponse.observe(this, {
             binding?.rvListPhoto?.visibility = if(it.photos?.isEmpty() == true) View.GONE else View.VISIBLE
+            binding?.expandedImage?.loadImage(it.photos?.get((it.photos.indices).random())?.src?.large)
             showRecycler(it)
         })
+
+        onInitToolbar()
         onErrMsg()
         onRefreshLoading()
     }
@@ -90,8 +97,22 @@ class ListPhotoActivity : AppCompatActivity() {
                 ListPhotoAdapter.LINEAR -> rvPhotos?.layoutManager = LinearLayoutManager(this)
                 ListPhotoAdapter.GRID -> rvPhotos?.layoutManager = GridLayoutManager(this, 2)
             }
-            rvPhotos?.adapter = ListPhotoAdapter(photos, it)
+            val listPhotoAdapter = ListPhotoAdapter(photos, it)
+            rvPhotos?.adapter = listPhotoAdapter
+            listPhotoAdapter.setOnItemClickCallback(object : ListPhotoAdapter.OnItemClickCallback {
+                override fun onItemClicked(get: PhotosItem?) {
+                 selectDetailPhoto(get)
+                }
+            })
         })
+    }
+
+    private fun onInitToolbar(){
+        setSupportActionBar(binding?.toolbar)
+        binding?.collapsingToolbarLayout?.apply {
+            setCollapsedTitleTextAppearance(R.style.MainTitleApp_CollapseTitle)
+            setExpandedTitleTextAppearance(R.style.MainTitleApp_CollapseTitle_Expaded)
+        }
     }
 
     private fun onErrMsg(){
@@ -100,6 +121,12 @@ class ListPhotoActivity : AppCompatActivity() {
             binding?.rvListPhoto?.visibility = if(it.isNullOrBlank()) View.VISIBLE else View.GONE
             binding?.tvErrorMessage?.text = it
         })
+    }
+
+    private fun selectDetailPhoto(photosItem: PhotosItem?) {
+        val moveToDetailIntent = Intent(this@ListPhotoActivity, DetailPhotoActivity::class.java)
+        moveToDetailIntent.putExtra(DetailPhotoActivity.EXTRA_DETAIL, photosItem)
+        startActivity(moveToDetailIntent)
     }
 
     override fun onDestroy() {

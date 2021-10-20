@@ -1,4 +1,4 @@
-package com.example.awesomeapp.ui
+package com.example.awesomeapp.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -25,7 +25,7 @@ class ListPhotoAdapter(private val photosResponse: PhotosResponse, private val l
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListPhotoAdapter.ListViewHolder {
+    ): ListViewHolder {
         return if(layoutType == GRID) {
             val binding = ItemRowPhotoGridBinding.inflate(LayoutInflater.from(parent.context),parent, false)
             ListViewHolder(binding)
@@ -35,7 +35,7 @@ class ListPhotoAdapter(private val photosResponse: PhotosResponse, private val l
         }
     }
 
-    override fun onBindViewHolder(holder: ListPhotoAdapter.ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         when(holder.binding){
             is ItemRowPhotoLinearBinding -> {
                 holder.binding.apply {
@@ -43,7 +43,7 @@ class ListPhotoAdapter(private val photosResponse: PhotosResponse, private val l
                     tvHeightNum.text = checkIsNull(photosResponse.photos?.get(position)?.height.toString())
                     tvWidthNum.text = checkIsNull(photosResponse.photos?.get(position)?.width.toString())
                     tvUsername.text = formatUsername(photosResponse.photos?.get(position)?.photographerUrl)
-                    ivPhoto.loadImage(photosResponse.photos?.get(position)?.src?.medium)
+                    ivPhoto.loadImage(photosResponse.photos?.get(position)?.src?.medium, 320, 320)
                     cardView.setOnClickListener { onItemClickCallback.onItemClicked(photosResponse.photos?.get(position)) }
                 }
             }
@@ -53,7 +53,7 @@ class ListPhotoAdapter(private val photosResponse: PhotosResponse, private val l
                     tvHeightNum.text = checkIsNull(photosResponse.photos?.get(position)?.height.toString())
                     tvWidthNum.text = checkIsNull(photosResponse.photos?.get(position)?.width.toString())
                     tvUsername.text = formatUsername(photosResponse.photos?.get(position)?.photographerUrl)
-                    ivPhoto.loadImage(photosResponse.photos?.get(position)?.src?.medium)
+                    ivPhoto.loadImage(photosResponse.photos?.get(position)?.src?.medium, 320, 320)
                     cardView.setOnClickListener { onItemClickCallback.onItemClicked(photosResponse.photos?.get(position)) }
                 }
             }

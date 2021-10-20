@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Awesome App!</string>
     <string name="awesome_app">Awesome App!</string>
+    <string name="detail_photo_activity">Detail Photo Activity</string>
     <string name="photo">photo</string>
     <string name="width">Width :</string>
     <string name="height">Height :</string>
     <string name="linear">Linear</string>
     <string name="grid">Grid</string>
+    <string name="collapse_image">collapse image</string>
 </resources>

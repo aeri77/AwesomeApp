@@ -12,12 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AwesomeApp">
         <activity
-            android:name=".ui.ListPhotoActivity"
-            android:exported="true" />
+            android:name=".ui.detail.DetailPhotoActivity"
+            android:exported="true"
+            />
+
+        <activity
+            android:name=".ui.list.ListPhotoActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
