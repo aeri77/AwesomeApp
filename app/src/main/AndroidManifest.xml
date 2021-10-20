@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AwesomeApp">
         <activity
-            android:name=".ui.ListPhotoActivity"
+            android:name=".ui.DetailPhoto.DetailPhotoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ListPhoto.ListPhotoActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
