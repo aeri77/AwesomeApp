@@ -12,7 +12,7 @@ android {
         minSdk 22
         targetSdk 30
         versionCode 1
-        versionName "0.1.3"
+        versionName "0.1.3-patch1"
         buildConfigField 'String', 'PEXELS_TOKEN', '"563492ad6f9170000100000193cd6108bb7e40f899b631ac7b9d426b"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -64,4 +64,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 }
