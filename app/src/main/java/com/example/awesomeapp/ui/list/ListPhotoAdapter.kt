@@ -1,4 +1,4 @@
-package com.example.awesomeapp.ui.ListPhoto
+package com.example.awesomeapp.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
