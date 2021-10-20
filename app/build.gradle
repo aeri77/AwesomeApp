@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-parcelize'
 }
 
 android {
@@ -43,9 +42,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
-    // UI Dependency
+    // Image Dependency
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     // API Dependency
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
