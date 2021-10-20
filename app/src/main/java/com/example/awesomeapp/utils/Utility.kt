@@ -23,10 +23,19 @@ object Utility {
         return checkIsNull(str?.removeRange(0, pexelUrl.length))
     }
 
+    fun ImageView.loadImage(url: String?, width: Int, height: Int) {
+        Glide.with(this.context)
+            .load(url)
+            .apply(RequestOptions().override(width, height))
+            .error(R.drawable.ic_image_broken)
+            .centerInside()
+            .placeholder(R.drawable.ic_image_placeholder)
+            .into(this)
+    }
+
     fun ImageView.loadImage(url: String?) {
         Glide.with(this.context)
             .load(url)
-            .apply(RequestOptions().override(320, 320))
             .error(R.drawable.ic_image_broken)
             .centerInside()
             .placeholder(R.drawable.ic_image_placeholder)

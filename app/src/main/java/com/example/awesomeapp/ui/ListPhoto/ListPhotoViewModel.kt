@@ -1,4 +1,4 @@
-package com.example.awesomeapp.ui
+package com.example.awesomeapp.ui.ListPhoto
 
 import android.util.Log
 import androidx.lifecycle.LiveData
