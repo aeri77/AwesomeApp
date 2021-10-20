@@ -1,5 +1,6 @@
 package com.example.awesomeapp.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,20 +27,20 @@ class ListPhotoViewModel: ViewModel() {
     val listViewState: LiveData<Int> = _listViewState
 
     fun getAllPhotos(){
+        _isLoading.value = true
         client.getListPhoto().enqueue(object : Callback<PhotosResponse>{
             override fun onResponse(
                 call: Call<PhotosResponse>,
                 response: Response<PhotosResponse>
             ) {
-                if(response.isSuccessful){
-                    _listPhotoResponse.value = response.body()
-                } else {
-                    _errMsg.value = response.message()
-                }
+                if(response.isSuccessful) _listPhotoResponse.value = response.body()
+                _errMsg.value = response.message()
+                _isLoading.value = false
             }
 
             override fun onFailure(call: Call<PhotosResponse>, t: Throwable) {
                 _errMsg.value = t.message
+                _isLoading.value = false
             }
         })
     }

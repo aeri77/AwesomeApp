@@ -51,6 +51,10 @@
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
+    </style>
 
+    <style name="TextDescribe">
+        <item name="android:fontFamily">@font/overlock_black</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>
